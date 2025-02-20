@@ -1,0 +1,14 @@
+const mongoose = require('mongoose');
+
+const userSchema = new mongoose.Schema({
+    name: String,
+    email: String,
+    phone: { type: String, match: /^[0-9]{10}$/ },
+    DOB: Date,
+    bookingDate: Date,
+    bookingTime: String,  
+    signature: String
+});
+
+const Form = mongoose.model('Form', userSchema);
+module.exports = Form;
